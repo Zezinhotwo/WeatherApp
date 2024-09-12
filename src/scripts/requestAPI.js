@@ -1,5 +1,15 @@
 // Função para buscar dados da API
+
+function mostrarCarregamento() {
+  document.getElementById("loading").style.display = "block";
+}
+
+function esconderCarregamento() {
+  document.getElementById("loading").style.display = "none";
+}
+
 export const getDataApi = async (city) => {
+  mostrarCarregamento(); // Mostrar a mensagem de carregamento
   try {
     const key = "6YEKLPKHD9DMPTTCZKHDE9JYW";
     const response = await fetch(
@@ -12,6 +22,8 @@ export const getDataApi = async (city) => {
   } catch (erro) {
     console.log("ERRR", erro.message);
     return null;
+  } finally {
+    esconderCarregamento(); // Esconder a mensagem de carregamento
   }
 };
 

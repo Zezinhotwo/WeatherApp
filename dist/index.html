@@ -12,10 +12,11 @@
         <button>Logar</button>
       </nav>
     </header>
+ 
     <section>
       <h2>Veja o clima do mundo inteiro com</h2>
       <div>
-        <div class="pesquisa">
+        <form class="pesquisa">
             <input
               type="search"
               name="shClima"
@@ -23,7 +24,7 @@
               placeholder="Search Here"
             required/>
             <button id="search">Search</button>
-        </div>
+        </form>
         <!-- <div class="select">
             <span>Filtros</span>
             <select name="filtroTemp" id="filtroTemp">
@@ -54,6 +55,9 @@
         </div>
       </div> -->
     </section>
+    <div id="loading" style="display: none;">
+        <p>Aguarde, carregando...</p>
+    </div>
     <section class="resultDom">
         <!-- <div class="clima"></div>
         <div class="clima"></div>

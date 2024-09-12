@@ -4,23 +4,36 @@ import nubladoImg from "../assets/nublado.png";
 import tempestadeImg from "../assets/tempestade.png";
 
 export function addDom(data, city) {
-  const climaImagens = {
-    "Céu limpo": solImg,
-    "Chuva": chuvaImg,
-    "Parcialmente nublado": nubladoImg,
-    "Tempestade": tempestadeImg,
-    // Adicione mais condições e imagens conforme necessário
-  };
+  function climaImagens(tempImg) {
+    const imagens = {
+      "Céu limpo": solImg,
+      Chuva: chuvaImg,
+      "Parcialmente nublado": nubladoImg,
+      Tempestade: tempestadeImg,
+      // Adicione mais condições e imagens conforme necessário
+    };
+
+    const imagemEncontrada = imagens[tempImg] || solImg;
+    return imagemEncontrada;
+  }
 
   const htmlContent = data
     .map(
       (item, index) => `
         <div class="clima">
-            <img src="${climaImagens[item.condicaoTempo]}" alt="${item.condicaoTempo}">
-            <h2><span class="title1">${city}</span>&nbsp; ${item.temperatura}°C</h2>
-            <p><span class="title">Vento</span>&nbsp; ${item.velocidadeVento} km/h</p>
+            <img src="${climaImagens(item.condicaoTempo)}" alt="${
+        item.condicaoTempo
+      }">
+            <h2><span class="title1">${city}</span>&nbsp; ${
+        item.temperatura
+      }°C</h2>
+            <p><span class="title">Vento</span>&nbsp; ${
+              item.velocidadeVento
+            } km/h</p>
             <p><span class="title">Tempo</span>&nbsp; ${item.condicaoTempo}</p>
-            <p id="hora-${index}"><span class="title">${item.diaSemana}</span>&nbsp; <span class="hora-atual">${item.horaAtual}</span></p>
+            <p id="hora-${index}"><span class="title">${
+        item.diaSemana
+      }</span>&nbsp; <span class="hora-atual">${item.horaAtual}</span></p>
         </div>
       `
     )

@@ -9,7 +9,24 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:  #4c7b94;
+    line-height: 100px;
+    color: white;
+    padding: 1em;
+    height: 20%;
+    width: 20%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    z-index: 1000; /* Garantir que a mensagem esteja acima de outros elementos */
+}
 header {
     height: 80px;
 
@@ -153,10 +170,12 @@ header + section {
         }
         .title1 {
             font-family: "Courier New", Courier, monospace;
+            font-size: 70%;
+        
         }
         .title {
             font-family: "Courier New", Courier, monospace;
-            font-size: 15pt;
+            font-size: 100%;
             font-weight: bolder;
         }
     }
